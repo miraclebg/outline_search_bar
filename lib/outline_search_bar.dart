@@ -1,6 +1,7 @@
 library outline_search_bar;
 
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:outline_search_bar/src/debouncer.dart';
 import 'package:simple_text_field/simple_text_field.dart';
@@ -161,7 +162,7 @@ class OutlineSearchBar extends StatefulWidget {
   final FocusNode? focusNode;
 
   const OutlineSearchBar({
-    Key? key,
+    super.key,
     this.textEditingController,
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.search,
@@ -204,8 +205,7 @@ class OutlineSearchBar extends StatefulWidget {
   })  : assert(borderWidth >= 0.0),
         assert(elevation >= 0.0),
         assert(cursorWidth >= 0.0),
-        assert(debounceDelay >= 0),
-        super(key: key);
+        assert(debounceDelay >= 0);
 
   @override
   _OutlineSearchBarState createState() => _OutlineSearchBarState();
@@ -217,6 +217,7 @@ class _OutlineSearchBarState extends State<OutlineSearchBar>
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
   late Debouncer _debouncer;
+
   // Whether to show the clear button.
   bool _isShowingClearButton = false;
 
